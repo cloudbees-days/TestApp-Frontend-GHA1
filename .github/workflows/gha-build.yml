@@ -23,7 +23,7 @@ jobs:
         uses: cloudbees-io-gha/register-build-artifact@main
         id: go-action
         with:
-          name: "TestApp-Frontend"
+          name: "TestApp-Frontend-SA"
           version: 1.0.0
           url: docker.io/TestApp/Frontend:1.0.0
           digest: "sha256:r5a423fe08af5e43a7fea6c4df9c25cdf269ee113168c19722f87876677c5cb2"
@@ -80,7 +80,7 @@ jobs:
       #   with :
       #     cloudbees-pat: ${{ secrets.CBP_PROD_PAT }}
       #     workflow-file-name: "cbp-deploy.yaml"
-      #     workflow-inputs: '{"artifactName": "TestApp-Frontend","artifactVersion": "1.0.0", "environment": "qa"}'
+      #     workflow-inputs: '{"artifactName": "TestApp-Frontend-SA","artifactVersion": "1.0.0", "environment": "qa"}'
 
       # - name: Use runUrl output
       #   run: echo "The CloudBees run URL is ${{ steps.deploy.outputs.cbp_run_url}}"
