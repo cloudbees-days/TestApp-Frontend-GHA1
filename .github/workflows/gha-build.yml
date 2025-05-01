@@ -19,23 +19,23 @@ jobs:
       - name: Push binary
         run: echo "Pushing Binary to ECR..."
 
-      # - name: Register Build Artifacts in Cloudbees Platform
-      #   uses: cloudbees-io-gha/register-build-artifact@main
-      #   id: go-action
-      #   with:
-      #     name: "TestApp-Frontend"
-      #     version: 1.0.0
-      #     url: docker.io/TestApp/Frontend:1.0.0
-      #     digest: "sha256:r5a423fe08af5e43a7fea6c4df9c25cdf269ee113168c19722f87876677c5cb2"
-      #     type: "docker"
-      #     cloudbees-pat: ${{ secrets.CBP_PROD_PAT }}
+      - name: Register Build Artifacts in Cloudbees Platform
+        uses: cloudbees-io-gha/register-build-artifact@main
+        id: go-action
+        with:
+          name: "TestApp-Frontend"
+          version: 1.0.0
+          url: docker.io/TestApp/Frontend:1.0.0
+          digest: "sha256:r5a423fe08af5e43a7fea6c4df9c25cdf269ee113168c19722f87876677c5cb2"
+          type: "docker"
+          cloudbees-pat: ${{ secrets.CBP_PROD_PAT }}
             
-      # - name: Publish evidence
-      #   uses: cloudbees-io-gha/publish-evidence-item@main
-      #   with:
-      #     cloudbees-pat: ${{ secrets.CBP_PROD_PAT }}
-      #     content: |-
-      #       Build Completed and artifacts published to Cloudbees platform
+      - name: Publish evidence
+        uses: cloudbees-io-gha/publish-evidence-item@main
+        with:
+          cloudbees-pat: ${{ secrets.CBP_PROD_PAT }}
+          content: |-
+            Build Completed and artifacts published to Cloudbees platform
 
   test:
     runs-on: ubuntu-latest
